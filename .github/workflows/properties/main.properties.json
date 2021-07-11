@@ -1,0 +1,6 @@
+{
+  "name": "Chirper API CI workflow",
+  "description": "Automatically run tests for Chirper API",
+  "iconName": "nodejs",
+  "categories": ["JavaScript", "Node", "Npm"]
+}
