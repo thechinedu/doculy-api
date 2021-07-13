@@ -1,4 +1,4 @@
-name: Chirper API CI workflow
+name: Doculy API CI workflow
 
 on:
   push:

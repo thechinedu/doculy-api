@@ -1,6 +1,6 @@
 {
-  "name": "Chirper API CI workflow",
-  "description": "Automatically run tests for Chirper API",
+  "name": "Doculy API CI workflow",
+  "description": "Automatically run tests for Doculy API",
   "iconName": "nodejs",
   "categories": ["JavaScript", "Node", "Npm"]
 }
