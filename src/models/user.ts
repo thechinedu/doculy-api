@@ -22,7 +22,7 @@ export class User {
     return db.user.create({
       data: {
         name,
-        email,
+        email: email.toLowerCase(),
         passwordHash: await hashPassword(password),
       },
 
