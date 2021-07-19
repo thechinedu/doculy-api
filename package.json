@@ -10,9 +10,10 @@
     "test": "jest",
     "lint": "eslint . --ext .ts",
     "db:schema:gen": "tsnd --respawn --exit-child -r dotenv/config ./src/db/schema.ts",
-    "db:migrate": "prisma migrate dev --name",
+    "db:migrate": "prisma migrate dev",
     "db:push": "prisma db push",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio",
+    "db:deploy": "prisma migrate deploy"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
