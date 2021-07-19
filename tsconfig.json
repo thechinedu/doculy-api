@@ -47,6 +47,5 @@
       "@utils": ["utils/index"],
       "@validators/*": ["validators/*"]
     }
-  },
-  "exclude": ["src/**/*.test.ts"]
+  }
 }

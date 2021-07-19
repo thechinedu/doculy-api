@@ -8,6 +8,14 @@ export type UserCreateInput = {
   password: string;
 };
 
+type UserCreateRet = {
+  id: number;
+  createdAt: Date;
+  updatedAt: Date;
+  name: string;
+  email: string;
+};
+
 const userSelectProperties: Record<keyof UserType, boolean> = {
   id: true,
   name: true,
@@ -18,7 +26,11 @@ const userSelectProperties: Record<keyof UserType, boolean> = {
 };
 
 export class User {
-  static async create({ name, email, password }: UserCreateInput) {
+  static async create({
+    name,
+    email,
+    password,
+  }: UserCreateInput): Promise<UserCreateRet> {
     return db.user.create({
       data: {
         name,
