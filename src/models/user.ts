@@ -8,7 +8,7 @@ export type UserCreateInput = {
   password: string;
 };
 
-type UserCreateRet = {
+type UserObject = {
   id: number;
   createdAt: Date;
   updatedAt: Date;
@@ -30,12 +30,22 @@ export class User {
     name,
     email,
     password,
-  }: UserCreateInput): Promise<UserCreateRet> {
+  }: UserCreateInput): Promise<UserObject> {
     return db.user.create({
       data: {
         name,
         email: email.toLowerCase(),
         passwordHash: await hashPassword(password),
+      },
+
+      select: userSelectProperties,
+    });
+  }
+
+  static async findByEmail(email: string): Promise<UserObject | null> {
+    return db.user.findUnique({
+      where: {
+        email: email.toLowerCase(),
       },
 
       select: userSelectProperties,

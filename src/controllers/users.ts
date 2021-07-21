@@ -8,10 +8,6 @@ export const createUser: Middleware = async (req, res) => {
     const user = await User.create({ name, email, password });
     res.status(HTTPStatus.CREATED).json(user);
   } catch (err) {
-    res
-      .status(HTTPStatus.UNPROCESSABLE_ENTITY)
-      .json([
-        { message: "The email address is already in use by another account" },
-      ]);
+    res.status(HTTPStatus.INTERNAL_SERVER_ERROR).end();
   }
 };
