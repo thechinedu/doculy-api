@@ -1,12 +1,18 @@
 import "./module-aliases";
 import express from "express";
 import morgan from "morgan";
+import Rollbar from "rollbar";
 
 import { UserRouter } from "@routes/users";
 
 export const app = express();
-const { PORT = 80 } = process.env;
-const { NODE_ENV } = process.env;
+const { PORT = 80, NODE_ENV, APP_ENV, ROLLBAR_ACCESS_TOKEN } = process.env;
+export const rollbar = new Rollbar({
+  accessToken: ROLLBAR_ACCESS_TOKEN,
+  environment: APP_ENV,
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+});
 
 const startApplication = () => {
   app.listen(Number(PORT), () => {
@@ -16,6 +22,8 @@ const startApplication = () => {
 };
 
 if (NODE_ENV !== "test") app.use(morgan("tiny"));
+if (APP_ENV !== "development") app.use(rollbar.errorHandler());
+
 app.use(express.json());
 
 app.use("/api/v1/users", UserRouter);

@@ -8,6 +8,7 @@ const config = {
     "@utils/(.*)": "<rootDir>/src/utils/$1",
     "@utils": "<rootDir>/src/utils",
     "@validators/(.*)": "<rootDir>/src/validators/$1",
+    "@root": "<rootDir>/src/index",
   },
 };
 

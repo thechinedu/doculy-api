@@ -48,7 +48,8 @@
     "joi": "^17.4.0",
     "module-alias": "^2.2.2",
     "morgan": "^1.10.0",
-    "prisma-prime": "~0.1.2"
+    "prisma-prime": "~0.1.2",
+    "rollbar": "^2.24.0"
   },
   "prisma": {
     "schema": "./src/db/schema.prisma"

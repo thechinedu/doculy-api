@@ -45,7 +45,8 @@
       "@routes/*": ["routes/*"],
       "@utils/*": ["utils/*"],
       "@utils": ["utils/index"],
-      "@validators/*": ["validators/*"]
+      "@validators/*": ["validators/*"],
+      "@root": ["index"]
     }
   }
 }
