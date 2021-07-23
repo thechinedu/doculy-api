@@ -15,5 +15,5 @@
     "project": "./tsconfig.json"
   },
   "plugins": ["@typescript-eslint"],
-  "ignorePatterns": ["build/**/*.js"]
+  "ignorePatterns": ["build/**/*.js", "jest.config.js"]
 }
