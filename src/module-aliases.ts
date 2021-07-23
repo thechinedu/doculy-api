@@ -15,6 +15,7 @@ const registerModuleAliases = () => {
     "@routes": modulePath("routes"),
     "@utils": modulePath("utils"),
     "@validators": modulePath("validators"),
+    "@root": modulePath("index"),
   });
 };
 
