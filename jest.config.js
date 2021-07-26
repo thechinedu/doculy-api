@@ -9,6 +9,8 @@ const config = {
     "@utils": "<rootDir>/src/utils",
     "@validators/(.*)": "<rootDir>/src/validators/$1",
     "@root": "<rootDir>/src/index",
+    "@serializers/(.*)": "<rootDir>/src/serializers/$1",
+    "@serializers": "<rootDir>/src/serializers",
   },
 };
 
