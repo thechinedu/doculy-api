@@ -1,7 +1,8 @@
-import Joi from "joi";
+import Joi, { ValidationError } from "joi";
 
 import { HTTPStatus, Middleware } from "@interfaces/shared";
 import { User, UserCreateInput } from "@models/user";
+import { ErrorSerializer } from "@serializers";
 
 const createUserSchema = Joi.object({
   name: Joi.string().required(),
@@ -18,15 +19,22 @@ export const validateCreateUser: Middleware = async (req, res, next) => {
   );
 
   if (error) {
-    return res.status(HTTPStatus.UNPROCESSABLE_ENTITY).json(error.details);
+    return res
+      .status(HTTPStatus.UNPROCESSABLE_ENTITY)
+      .json(ErrorSerializer.serialize(error, "fail"));
   }
 
   const user = await User.findByEmail(email);
 
   if (user) {
-    return res.status(HTTPStatus.CONFLICT).json({
-      message: "User with that email already exists.",
-    });
+    const message = "User with that email already exists";
+    const path = ["email"];
+    const details = [{ path, message }];
+    const userExistsError = new ValidationError("", details, null);
+
+    return res
+      .status(HTTPStatus.CONFLICT)
+      .json(ErrorSerializer.serialize(userExistsError, "fail"));
   }
 
   return next();
