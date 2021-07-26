@@ -8,7 +8,7 @@ export type UserCreateInput = {
   password: string;
 };
 
-type UserObject = {
+export type UserObject = {
   id: number;
   createdAt: Date;
   updatedAt: Date;

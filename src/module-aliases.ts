@@ -16,6 +16,7 @@ const registerModuleAliases = () => {
     "@utils": modulePath("utils"),
     "@validators": modulePath("validators"),
     "@root": modulePath("index"),
+    "@serializers": modulePath("serializers")
   });
 };
 

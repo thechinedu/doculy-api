@@ -46,7 +46,9 @@
       "@utils/*": ["utils/*"],
       "@utils": ["utils/index"],
       "@validators/*": ["validators/*"],
-      "@root": ["index"]
+      "@root": ["index"],
+      "@serializers/*": ["serializers/*"],
+      "@serializers": ["serializers/index"]
     }
   }
 }
