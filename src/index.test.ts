@@ -1,6 +1,6 @@
 import req from "supertest";
 
-import { app as MainApp } from "./";
+import { app as MainApp } from "@root";
 
 describe("root path", () => {
   let app: req.SuperTest<req.Test>;
