@@ -11,8 +11,8 @@
     "lint": "eslint . --ext .ts",
     "db:schema:gen": "dotenv tsnd --respawn --exit-child ./src/db/schema.ts",
     "db:migrate": "prisma migrate dev",
-    "db:migrate:test": "dotenv -e .env.test -- prisma migrate dev",
     "db:push": "prisma db push",
+    "db:test:prepare": "dotenv -e .env.test -- prisma db push",
     "db:studio": "prisma studio",
     "db:deploy": "prisma migrate deploy"
   },
