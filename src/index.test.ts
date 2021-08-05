@@ -13,6 +13,7 @@ describe("root path", () => {
     const res = await app.get("/");
 
     expect(res.statusCode).toBe(200);
+    expect(res.body).toBe("Hello from the doculy api!");
   });
 
   it("should respond with json", async () => {

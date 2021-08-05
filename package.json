@@ -12,7 +12,7 @@
     "db:schema:gen": "dotenv tsnd --respawn --exit-child ./src/db/schema.ts",
     "db:migrate": "prisma migrate dev",
     "db:push": "prisma db push",
-    "db:test:prepare": "dotenv -e .env.test -- prisma db push",
+    "db:test:prepare": "dotenv -e .env.test -- prisma db push --force-reset",
     "db:studio": "prisma studio",
     "db:deploy": "prisma migrate deploy"
   },
@@ -28,6 +28,7 @@
     "@typescript-eslint/eslint-plugin": "^4.28.2",
     "@typescript-eslint/parser": "^4.28.2",
     "babel-jest": "^27.0.1",
+    "cross-spawn": "^7.0.3",
     "dotenv-cli": "^4.0.0",
     "eslint": "^7.30.0",
     "eslint-config-airbnb-base": "^14.2.1",
