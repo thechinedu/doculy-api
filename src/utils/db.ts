@@ -1,5 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { spawn } from "cross-spawn";
+import { sync } from "cross-spawn";
 interface EnhancedPrismaClient extends PrismaClient {
   $reset: () => void;
 }
@@ -13,8 +13,7 @@ const enhanceSingletonClient = (
 
   client.$reset = () => {
     if (NODE_ENV === "test") {
-      console.log(`Resetting database for the test environment`);
-      spawn("yarn", ["db:test:prepare"]);
+      sync("yarn", ["db:test:reset"]);
     }
   };
 
