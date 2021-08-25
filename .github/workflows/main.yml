@@ -46,3 +46,4 @@ jobs:
           DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
           NODE_ENV: test
           APP_ENV: test
+          PORT: 5001
