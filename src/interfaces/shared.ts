@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from "express";
+import { Server } from "http";
 
 export enum HTTPStatus {
   OK = 200,
@@ -13,3 +14,7 @@ export type Middleware = (
   res: Response,
   next: NextFunction
 ) => void;
+
+export type Global = typeof globalThis & {
+  __SERVER__: Server;
+};

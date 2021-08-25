@@ -1,9 +1,7 @@
 import { join } from "path";
 import moduleAlias from "module-alias";
 
-const { NODE_ENV } = process.env;
-
-const baseDir = NODE_ENV === "development" ? "./src" : "./build";
+const baseDir = "./src";
 
 const modulePath = (path: string) => join(process.cwd(), `${baseDir}/${path}`);
 
@@ -16,7 +14,7 @@ const registerModuleAliases = () => {
     "@utils": modulePath("utils"),
     "@validators": modulePath("validators"),
     "@root": modulePath("index"),
-    "@serializers": modulePath("serializers")
+    "@serializers": modulePath("serializers"),
   });
 };
 
