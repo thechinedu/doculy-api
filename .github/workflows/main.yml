@@ -41,8 +41,8 @@ jobs:
       - run: yarn lint
       - run: yarn build
       - name: Run tests
-        run: yarn test
+        run: printenv
         env:
-          DATABASE_URL: "postgresql://postgres@localhost:5432/doculy_test"
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
           NODE_ENV: test
           APP_ENV: test
