@@ -29,7 +29,7 @@ app.use(express.json());
 app.use("/api/v1/users", UserRouter);
 
 app.get("/", (_req, res) => {
-  res.status(200).json("hello from Doculy!");
+  res.status(200).json("Hello from the doculy api!");
 });
 
 if (NODE_ENV !== "test") startApplication();

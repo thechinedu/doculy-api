@@ -1,4 +1,6 @@
-const config = {
+import type { Config } from "@jest/types";
+
+const config: Config.InitialOptions = {
   moduleFileExtensions: ["ts", "js"],
   moduleNameMapper: {
     "@controllers/(.*)": "<rootDir>/src/controllers/$1",
@@ -11,7 +13,10 @@ const config = {
     "@root": "<rootDir>/src/index",
     "@serializers/(.*)": "<rootDir>/src/serializers/$1",
     "@serializers": "<rootDir>/src/serializers",
+    "@test-utils": "<rootDir>/jest.setup",
   },
+  globalSetup: "./jest.setup.ts",
+  globalTeardown: "./jest.teardown.ts",
 };
 
-module.exports = config;
+export default config;

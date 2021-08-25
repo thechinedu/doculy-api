@@ -1,23 +1,16 @@
-import req from "supertest";
-
-import { app as MainApp } from "./";
+import { req } from "@test-utils";
 
 describe("root path", () => {
-  let app: req.SuperTest<req.Test>;
-
-  beforeEach(() => {
-    app = req(MainApp);
-  });
-
   it("should respond with a 200 status code", async () => {
-    const res = await app.get("/");
+    const res = await req.get("/");
 
-    expect(res.statusCode).toBe(200);
+    expect(res.status).toBe(200);
+    expect(res.data).toBe("Hello from the doculy api!");
   });
 
   it("should respond with json", async () => {
-    const res = await app.get("/");
+    const res = await req.get("/");
 
-    expect(res.type).toBe("application/json");
+    expect(res.headers["content-type"]).toContain("application/json");
   });
 });
