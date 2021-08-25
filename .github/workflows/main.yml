@@ -9,7 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment: doculy-staging
 
     services:
       postgres:
@@ -42,8 +41,8 @@ jobs:
       - run: yarn lint
       - run: yarn build
       - name: Run tests
-        run: printenv
+        run: yarn test
         env:
-          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          DATABASE_URL: postgresql://postgres:postgres@localhost:5432/postgres
           NODE_ENV: test
           APP_ENV: test
