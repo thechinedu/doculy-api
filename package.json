@@ -48,13 +48,16 @@
   },
   "dependencies": {
     "@prisma/client": "^2.30.0",
+    "@types/cors": "^2.8.12",
     "argon2": "^0.28.1",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "joi": "^17.4.0",
     "module-alias": "^2.2.2",
     "morgan": "^1.10.0",
     "prisma-prime": "~0.2.0",
-    "rollbar": "^2.24.0"
+    "rollbar": "^2.24.0",
+    "supertokens-node": "^6.1.0"
   },
   "prisma": {
     "schema": "./src/db/schema.prisma"
